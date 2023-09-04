@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="script.js"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <link rel="icon" href="./images/logo.jpg">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="left">
+            <label class="heading">HTML <i class="fa-brands fa-html5" style="color: #dd0e0e;"></i></i></label>
+            <textarea id="html-code" onkeyup="run()"></textarea>
+        </div>
+
+        <div class="left">
+            <label class="heading">CSS <i class="fa-brands fa-css3-alt" style="color: #110de7;"></i></label>
+            <textarea id="css-code" onkeyup="run()"></textarea>
+        </div>
+
+        <div class="left">
+            <label class="heading">JavaScript <i class="fa-brands fa-js" style="color: #e3e60f;"></i></label>
+            <textarea id="js-code" onkeyup="run()"></textarea>
+        </div>
+
+        
+    </div>
+    <div class="right">
+            <iframe id="output"> </iframe>
+    </div>
+
+
+    
+<!-- Script -->
+
+    
+<script>
+    function run() {
+        let htmlcode = document.getElementById("html-code").value;
+        let csscode = document.getElementById("css-code").value;
+        let jscode = document.getElementById("js-code").value;
+        let output = document.getElementById("output");
+    
+       
+        output.contentDocument.body.innerHTML = htmlcode+"<style>"+csscode +"</style>";
+        output.contentWindow.eval(jscode);
+    
+    }
+</script>
+    
+</body>
+
+</html>
+
+
